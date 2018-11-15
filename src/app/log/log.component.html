@@ -1,0 +1,42 @@
+
+<!-- <div class="row">
+  <div class="col-md-5">
+    <app-event-list></app-event-list>
+  </div>
+  <div class="col-md-7">
+    <router-outlet></router-outlet>
+  </div>
+</div> -->
+
+<h1> Users Who Have Solved Quizzes</h1>
+<hr>
+  <h3 *ngIf="records">No. of users giving quiz: {{records.length}}</h3>
+<hr>
+<button class="btn btn-primary" (click)="getCSV()">Download CSV</button>
+<hr>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class = "head">
+        <tr>
+          <th>#</th>
+          <th (click)="sort('uid')" class="pointer">
+            Name
+            <i class="fa" [ngClass]="{'fa-sort': column != 'uid', 'fa-sort-asc': (column == 'uid' && isDesc), 'fa-sort-desc': (column == 'uid' && !isDesc) }" aria-hidden="true"> </i>
+          </th>
+          <th (click)="sort('quiz')" class="pointer">
+            Quizzes Given
+            <i class="fa" [ngClass]="{'fa-sort': column != 'quiz', 'fa-sort-asc': (column == 'quiz' && isDesc), 'fa-sort-desc': (column == 'quiz' && !isDesc) }" aria-hidden="true"> </i>
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngIf="records">
+        <tr *ngFor="let item of records; let i = index;">
+          <td>{{i + 1}}</td>
+          <td><a [routerLink]="['/user', item.uid]" >{{item.uid}}</a></td>
+          <td>{{item.quiz}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+

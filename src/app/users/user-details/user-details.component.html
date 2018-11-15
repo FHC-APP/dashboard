@@ -1,0 +1,119 @@
+<div class="well">
+  <h1>
+    {{this.user.fullName}}
+  </h1>
+  <p> <strong>Email:</strong> {{this.user.emailId}} <strong>| Phone No.:</strong> {{this.user.phoneNumber}}</p>
+</div>
+<div>
+   <p> <strong>Type of Course:</strong> {{this.user.typeOfCourse | uppercase}}</p>
+   <p> <strong>Attempt No.:</strong> {{this.user.attemptNo}}</p>
+   <p> <strong>Attempt Date:</strong> {{this.user.attemptDate}}</p>
+   <p> <strong>Date of Birth:</strong> {{this.user.dob}}</p>
+</div>
+<button class="btn btn-primary" (click)="getCSV()">Download CSV</button>
+<hr>
+<h2>Quizzes</h2>
+<table class="table table-bordered table-striped login">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th (click)="sort('subject')" class="pointer">
+        Subject
+        <i class="fa" [ngClass]="{'fa-sort': column != 'subject', 'fa-sort-asc': (column == 'subject' && isDesc), 'fa-sort-desc': (column == 'subject' && !isDesc) }" aria-hidden="true"> </i>
+      </th>
+      <th (click)="sort('chapter')" class="pointer">
+        Chapter
+        <i class="fa" [ngClass]="{'fa-sort': column != 'chapter', 'fa-sort-asc': (column == 'chapter' && isDesc), 'fa-sort-desc': (column == 'chapter' && !isDesc) }" aria-hidden="true"> </i>
+      </th>
+      <th (click)="sort('quizId')" class="pointer">
+        Quiz Id
+        <i class="fa" [ngClass]="{'fa-sort': column != 'quizId', 'fa-sort-asc': (column == 'quizId' && isDesc), 'fa-sort-desc': (column == 'quizId' && !isDesc) }" aria-hidden="true"> </i>
+      </th>
+      <th (click)="sort('date')" class="pointer">
+        Date
+        <i class="fa" [ngClass]="{'fa-sort': column != 'date', 'fa-sort-asc': (column == 'date' && isDesc), 'fa-sort-desc': (column == 'date' && !isDesc) }" aria-hidden="true"> </i>
+      </th>
+      <th (click)="sort('marks')" class="pointer">
+        Marks
+        <i class="fa" [ngClass]="{'fa-sort': column != 'marks', 'fa-sort-asc': (column == 'marks' && isDesc), 'fa-sort-desc': (column == 'marks' && !isDesc) }" aria-hidden="true"> </i>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of solved; let i=index;">
+      <td>{{i + 1}}</td>
+      <td>
+        {{item.subject | uppercase}}
+      </td>
+      <td>
+        {{item.chapter}}
+      </td>
+      <td>
+        {{item.quizId}}
+      </td>
+      <td>
+        {{item.date | date}}
+      </td>
+      <td>
+        {{item.marks}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- <h2>Explicitly Logged Out</h2>
+<table class="table table-bordered table-striped logout">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>
+        IP
+      </th>
+      <th>
+        Time
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of logout; let i=index;">
+      <td>{{i + 1}}</td>
+      <td>
+        {{item.ip}}
+      </td>
+      <td>
+        {{item.time}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Presence</h2>
+<span>Shows the start and end time of a session (session terminates on refreshing a page or closing a window)</span>
+<table class="table table-bordered table-striped presence">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>
+        Began
+      </th>
+      <th>
+        Ended
+      </th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of presence; let i=index;">
+      <td>{{i + 1}}</td>
+      <td>
+        {{item.began | date: 'medium'}}
+      </td>
+      <td>
+        {{item.ended | date: 'medium'}}
+      </td>
+      <td>{{   (item.ended - item.began) | duration }} </td>
+    </tr>
+  </tbody>
+</table> -->

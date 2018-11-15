@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Moulud Mo. Abdullah Yahya Saheb</h1>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-12">
+    <h3>There were
+      <strong>{{login.length}}</strong>
+      attendees
+    </h3>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <p>Attendees:</p>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let log of login" >
+        <a [routerLink]="['/user', log.uid]" style="cursor: pointer;">{{log.name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

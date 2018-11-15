@@ -1,0 +1,9 @@
+.pointer {
+  cursor: pointer;
+}
+
+.head {
+  background-color: darkcyan;
+  color: white;
+  text-align: center;
+}

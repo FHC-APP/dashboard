@@ -1,0 +1,20 @@
+h1, p, th, td{
+  text-align: center;
+}
+
+th{
+  color: white;
+  font-weight: bold;
+}
+
+.login  th{
+  background-color: #1fb58f;
+}
+
+.logout th {
+  background-color: #eab126;
+}
+
+.presence  th {
+  background-color:  #f24c4e;
+}
